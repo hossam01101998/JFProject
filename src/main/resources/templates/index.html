@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><!--th:insert="~{menutemplate::header('index')}"-->
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style> table {border: 2px solid black;}</style>
+    <link rel="stylesheet" th:href="@{style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body style="background-image: url('https://img.freepik.com/premium-vector/white-simple-abstract-wallpaper_393744-50.jpg?w=2000');
+background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+
+
+
+   <nav th:insert="~{main::navbar}" class="navbar navbar-expand-lg navbar-light bg-light">
+    </nav>
+
+   <main style="margin: 30px">
+       <h1>IfYouDontNeedItJustSellIt!.com</h1>
+   <div>
+       <hr>
+    <table class="table container" style="text-align: center">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
+            <th scope="col">BUY!</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td>
+                <span th:text="${product.name}"/>
+            </td>
+            <td>
+                <span th:text="${product.price}"/> €
+            </td>
+            <td>
+                <span th:text="${product.omschrijving}"></span>
+
+            </td>
+            <td>
+                <a th:href="@{~/productinfo/{id}(id = ${product.id})}">
+                    <img src=https://creazilla-store.fra1.digitaloceanspaces.com/emojis/46515/shopping-cart-emoji-clipart-md.png alt="Winkelwagentje" style="width: 40px; height: 35px">
+                </a>
+
+                <!--<a th:href="@{~/productinfo/{id}(id = ${product.id})}">
+                    <img th:src="@{/photos/car.png}" alt="Winkelwagentje" style="width: 40px; height: 35px">
+                </a>-->
+
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <a th:href="@{~/newproduct}" class="btn btn-primary">New Product</a>
+</div>
+   </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

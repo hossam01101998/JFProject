@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Information</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+<body style="background-image: url('https://wallpaperaccess.com/full/358856.png');
+background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+<nav th:insert="~{main::navbar}" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+
+<main style="margin: 30px">
+    <h1>Product information:</h1>
+    <hr>
+<span>
+    <h6>Product Name:</h6>
+    <p th:text="${product.name}"></p>
+    <h6>Categorie:</h6>
+    <p th:text="${product.categorie}"></p>
+    <h6>Description:</h6>
+    <p th:text="${product.omschrijving}"></p>
+    <h6>Price:</h6>
+    <p style=" background-color: lightcoral; padding: 15px; border-radius: 10px; display: inline-block; font-weight: bold">
+    <span th:text="${product.price}"> </span><span> € </span> </p>
+    <br>
+    <br>
+    <div style="background-color: lightblue; padding: 15px; border-radius: 10px;" >
+    <h6>Verkoper ID:</h6>
+    <p th:text="${verkoper.id}"></p>
+    <h6>Verkoper email:</h6>
+    <p>
+    <a th:href="'mailto:' + ${verkoper.email}" th:text="${verkoper.email}">
+    </a>
+    </p>
+
+    <h6>Verkoper username:</h6>
+    <p th:text="${verkoper.username}"></p>
+</div>
+
+</span>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
